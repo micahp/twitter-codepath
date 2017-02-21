@@ -1,0 +1,6 @@
+framework module Pods_twitter_codepath {
+  umbrella header "Pods-twitter-codepath-umbrella.h"
+
+  export *
+  module * { export * }
+}
