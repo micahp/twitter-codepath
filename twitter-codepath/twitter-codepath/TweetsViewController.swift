@@ -35,6 +35,26 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         })
     }
     
+    @IBAction func onFavoriteTapped(_ sender: UIButton) {
+        if let superview = sender.superview {
+            if let cell = superview.superview as? TweetCell {
+                let indexPath = tableView.indexPath(for: cell)
+                let tweet = tweets[indexPath!.row]
+                TwitterClient.sharedInstance.favorite(tweet: tweet)
+            }
+        }
+    }
+    
+    @IBAction func onRetweetTapped(_ sender: UIButton) {
+        if let superview = sender.superview {
+            if let cell = superview.superview as? TweetCell {
+                let indexPath = tableView.indexPath(for: cell)
+                let tweet = tweets[indexPath!.row]
+                TwitterClient.sharedInstance.retweet(tweet: tweet)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count
     }

@@ -33,6 +33,27 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    func retweet(tweet:Tweet) {
+        TwitterClient.sharedInstance.post("https://api.twitter.com/1.1/statuses/retweet/\(tweet.id!).json", parameters: nil, progress: { (progress) in
+            print("retweet in progress")
+        }, success: { (task, result) in
+            tweet.retweetCount += 1
+            print("retweeted tweet id \(tweet.id)")
+        }) { (task, error) in
+            print("error: \(error.localizedDescription)")
+        }
+    }
+    
+    func favorite(tweet:Tweet) {
+        TwitterClient.sharedInstance.post("https://api.twitter.com/1.1/favorites/create.json", parameters: ["id":tweet.id!], progress: { (progress) in
+            print("favorite in progress")
+        }, success: { (task, result) in
+            tweet.favoritesCount += 1
+            print("favorited tweet id \(tweet.id)")
+        }) { (task, error) in
+            print("error: \(error.localizedDescription)")
+        }
+    }
     
     func handleOpenURL(url: URL) {
         let requestToken = BDBOAuth1Credential(queryString: url.query)!

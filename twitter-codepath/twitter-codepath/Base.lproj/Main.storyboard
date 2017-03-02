@@ -57,20 +57,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="scC-MK-HS5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="scC-MK-HS5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tweetCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="108" id="ptC-oj-p9D" customClass="TweetCell" customModule="twitter_codepath" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="108"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tweetCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="120" id="ptC-oj-p9D" customClass="TweetCell" customModule="twitter_codepath" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ptC-oj-p9D" id="ioa-nh-03n">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="107.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="BRO OBVIOUSLY GO LISTEN TO THE THUNDERCAT ALBUM 55 TIMES BACK TO BACK" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krY-Cm-tUc">
-                                                    <rect key="frame" x="66" y="30" width="301" height="69"/>
+                                                    <rect key="frame" x="66" y="30" width="301" height="61"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -100,20 +100,48 @@
                                                     <color key="textColor" red="0.33895145939086291" green="0.33895145939086291" blue="0.33895145939086291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTo-Ue-Mgi">
+                                                    <rect key="frame" x="66" y="95" width="56" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="1Fe-3a-Hsw"/>
+                                                        <constraint firstAttribute="width" constant="56" id="ltN-Eu-1Pu"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Retweet"/>
+                                                    <connections>
+                                                        <action selector="onRetweetTapped:" destination="ku2-JO-33W" eventType="touchUpInside" id="3XW-ZW-pAg"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8l-HH-hNf">
+                                                    <rect key="frame" x="153" y="95" width="55" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="UmE-En-1OG"/>
+                                                        <constraint firstAttribute="height" constant="15" id="wED-NA-xmo"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Favorite"/>
+                                                    <connections>
+                                                        <action selector="onFavoriteTapped:" destination="ku2-JO-33W" eventType="touchUpInside" id="J0k-7s-IZY"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="krY-Cm-tUc" secondAttribute="bottom" constant="0.5" id="1Wx-mh-sRG"/>
                                                 <constraint firstItem="5ay-Z8-UUl" firstAttribute="centerY" secondItem="LLE-SM-nvA" secondAttribute="centerY" id="3pA-PN-2A3"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="w8l-HH-hNf" secondAttribute="bottom" constant="1" id="5fI-6h-PaP"/>
+                                                <constraint firstItem="w8l-HH-hNf" firstAttribute="leading" secondItem="dTo-Ue-Mgi" secondAttribute="trailing" constant="31" id="7LK-MR-Kxy"/>
                                                 <constraint firstItem="CdC-P4-xDE" firstAttribute="leading" secondItem="ioa-nh-03n" secondAttribute="leading" constant="8" id="Cab-MW-1gY"/>
+                                                <constraint firstItem="w8l-HH-hNf" firstAttribute="top" secondItem="krY-Cm-tUc" secondAttribute="bottom" constant="4" id="FVU-U6-LoX"/>
                                                 <constraint firstAttribute="topMargin" secondItem="5ay-Z8-UUl" secondAttribute="top" id="Gj8-UY-zoV"/>
                                                 <constraint firstItem="krY-Cm-tUc" firstAttribute="top" secondItem="LLE-SM-nvA" secondAttribute="bottom" constant="4" id="Lc3-s1-Yb8"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="y0Y-DN-Pk6" secondAttribute="trailing" id="SDJ-QA-cPT"/>
                                                 <constraint firstItem="5ay-Z8-UUl" firstAttribute="leading" secondItem="LLE-SM-nvA" secondAttribute="trailing" constant="3" id="SSU-dW-tN3"/>
+                                                <constraint firstItem="w8l-HH-hNf" firstAttribute="centerY" secondItem="dTo-Ue-Mgi" secondAttribute="centerY" id="a91-FL-5Lz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dTo-Ue-Mgi" secondAttribute="bottom" constant="1" id="gvG-Wn-t78"/>
                                                 <constraint firstItem="krY-Cm-tUc" firstAttribute="leading" secondItem="CdC-P4-xDE" secondAttribute="trailing" constant="8" id="ia0-w7-MNu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="krY-Cm-tUc" secondAttribute="trailing" id="joy-0I-XEn"/>
                                                 <constraint firstItem="CdC-P4-xDE" firstAttribute="top" secondItem="ioa-nh-03n" secondAttribute="top" constant="8" id="nXD-cM-SvG"/>
                                                 <constraint firstItem="LLE-SM-nvA" firstAttribute="leading" secondItem="CdC-P4-xDE" secondAttribute="trailing" constant="8" id="nY2-uP-FAw"/>
+                                                <constraint firstItem="dTo-Ue-Mgi" firstAttribute="leading" secondItem="ioa-nh-03n" secondAttribute="leadingMargin" constant="58" id="omv-6x-lsn"/>
                                                 <constraint firstAttribute="topMargin" secondItem="LLE-SM-nvA" secondAttribute="top" id="r4e-CN-mum"/>
+                                                <constraint firstItem="dTo-Ue-Mgi" firstAttribute="top" secondItem="krY-Cm-tUc" secondAttribute="bottom" constant="4" id="sMC-8P-6lz"/>
                                                 <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="CdC-P4-xDE" secondAttribute="bottom" constant="49" id="sSk-88-wLw"/>
                                                 <constraint firstItem="y0Y-DN-Pk6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5ay-Z8-UUl" secondAttribute="trailing" constant="3" id="sWp-Ts-FRY"/>
                                                 <constraint firstItem="y0Y-DN-Pk6" firstAttribute="top" secondItem="ioa-nh-03n" secondAttribute="topMargin" id="z2f-fF-aPV"/>
