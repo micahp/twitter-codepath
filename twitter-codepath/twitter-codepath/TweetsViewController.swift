@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -24,7 +25,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         TwitterClient.sharedInstance.homeTimeline(success: { (tweets) in
             
             for tweet in tweets {
-                print(tweet.text)
+                print(tweet.text!)
                 self.tweets.append(tweet)
             }
             self.tableView.reloadData()
@@ -44,6 +45,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let tweet = tweets[indexPath.row]
         cell.authorLabel.text = tweet.author
         cell.tweetTextLabel.text = tweet.text
+        cell.authorHandleLabel.text = tweet.screenName
+        cell.timestampLabel.text = tweet.timestamp
+        cell.profileImageView.setImageWith((tweet.user?.profile_image_url)!)
         
         return cell
     }
